@@ -30,9 +30,16 @@ const FacultyList = () => {
             try {
                 const response = await fetch('/api/faculty');
                 const data = await response.json();
-                setFacultyData(data);
+
+                if (Array.isArray(data)) {
+                    setFacultyData(data);
+                } else {
+                    console.error("Expected array but got:", data);
+                    setFacultyData([]);
+                }
             } catch (error) {
                 console.error("Error fetching faculty:", error);
+                setFacultyData([]);
             } finally {
                 setLoading(false);
             }
