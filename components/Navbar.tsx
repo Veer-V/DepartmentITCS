@@ -43,12 +43,17 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
-                    {/* Logo */}
+                    {/* College Logo */}
                     <div className="flex-shrink-0">
                         <Link href="/" className="flex items-center group">
-                            <span className={clsx("text-2xl font-bold font-serif tracking-tight transition-colors", scrolled ? "text-primary" : "text-white")}>
-                                CS & IT
-                            </span>
+                            <div className="relative w-16 h-16 rounded-full overflow-hidden bg-white/90 backdrop-blur-sm shadow-lg border border-white/20 hover:scale-110 transition-transform duration-300">
+                                <Image
+                                    src="/college-logo.png"
+                                    alt="College Logo"
+                                    fill
+                                    className="object-contain p-1"
+                                />
+                            </div>
                         </Link>
                     </div>
 
@@ -88,7 +93,7 @@ const Navbar = () => {
                         >
                             Apply Now
                         </Link>
-                        <div className="relative w-20 h-20 hover:scale-110 transition-transform duration-300 cursor-pointer bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-white/20 p-1">
+                        <div className="relative w-16 h-16 hover:scale-110 transition-transform duration-300 cursor-pointer bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-white/20 p-1">
                             <Image
                                 src="/department-logo.png"
                                 alt="Department Logo"
