@@ -10,6 +10,7 @@ import { facultyData, Faculty } from "../lib/data";
 const FacultyList = () => {
     const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
     const [searchQuery, setSearchQuery] = useState("");
+    const [visibleCount, setVisibleCount] = useState(10);
 
     // Use static data directly
     const filteredFaculty = facultyData.filter((member) =>
@@ -54,26 +55,26 @@ const FacultyList = () => {
                         description="Faculty information will be updated soon. Please check back later."
                     />
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                        {filteredFaculty.map((member, index) => (
-                            <motion.div
-                                key={member._id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
-                                whileHover={{ y: -5 }}
-                                onClick={() => setSelectedFaculty(member)}
-                                className="group flex flex-col items-center text-center p-6 rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
-                            >
-                                <div className="relative mb-4">
+                    <>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                            {filteredFaculty.slice(0, visibleCount).map((member, index) => (
+                                <motion.div
+                                    key={member._id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05 }}
+                                    whileHover={{ y: -5 }}
+                                    onClick={() => setSelectedFaculty(member)}
+                                    className="group flex flex-col items-center text-center p-6 rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                                >
                                     <div className="w-28 h-28 rounded-full bg-white p-1 border-2 border-[#D4AF37] transition-all duration-300 shadow-md relative overflow-hidden">
                                         {member.image ? (
                                             <Image
                                                 src={member.image}
                                                 alt={member.name}
                                                 fill
-                                                className="rounded-full object-cover object-top"
+                                                className="rounded-full object-cover object-[50%_25%]"
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             />
                                         ) : (
@@ -82,16 +83,27 @@ const FacultyList = () => {
                                             </div>
                                         )}
                                     </div>
-                                </div>
-                                <h3 className="text-lg font-serif font-bold text-gray-900 group-hover:text-primary transition-colors">
-                                    {member.name}
-                                </h3>
-                                <p className="text-sm text-gray-500 font-medium mt-1">
-                                    {member.designation}
-                                </p>
-                            </motion.div>
-                        ))}
-                    </div>
+                                    <h3 className="text-lg font-serif font-bold text-gray-900 group-hover:text-primary transition-colors">
+                                        {member.name}
+                                    </h3>
+                                    <p className="text-sm text-gray-500 font-medium mt-1">
+                                        {member.designation}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {filteredFaculty.length > visibleCount && (
+                            <div className="mt-12 text-center">
+                                <button
+                                    onClick={() => setVisibleCount((prev) => prev + 10)}
+                                    className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-primary hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                                >
+                                    View More Faculty
+                                </button>
+                            </div>
+                        )}
+                    </>
                 )}
 
                 {/* Details Modal */}
@@ -134,7 +146,7 @@ const FacultyList = () => {
                                                     src={selectedFaculty.image}
                                                     alt={selectedFaculty.name}
                                                     fill
-                                                    className="object-cover"
+                                                    className="object-cover object-[50%_25%]"
                                                     sizes="(max-width: 768px) 100vw, 50vw"
                                                 />
                                             ) : (
