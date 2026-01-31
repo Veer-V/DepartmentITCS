@@ -74,7 +74,7 @@ const FacultyList = () => {
                                                 src={member.image}
                                                 alt={member.name}
                                                 fill
-                                                className="rounded-full object-cover object-center"
+                                                className="rounded-full object-cover object-top"
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw" />
                                         ) : (
                                             <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-3xl font-serif font-bold text-[#D4AF37]">
@@ -145,7 +145,7 @@ const FacultyList = () => {
                                                     src={selectedFaculty.image}
                                                     alt={selectedFaculty.name}
                                                     fill
-                                                    className="object-cover object-center"
+                                                    className="object-cover object-top"
                                                     sizes="(max-width: 768px) 100vw, 50vw"
                                                 />
                                             ) : (
