@@ -483,76 +483,143 @@ export const facultyData: Faculty[] = [
     },
 ];
 
-export const programsData: { it: Program[]; cs: Program[] } = {
-    it: [
-        {
-            id: "bscit",
-            title: "B.Sc.I.T.",
-            description: "A comprehensive undergraduate program focusing on Information Technology, software development, and database management.",
-            duration: "3 Years",
-            seats: "60",
-            tags: ["Java", "Python", "SQL", "Web Dev"]
-        },
-        {
-            id: "bca",
-            title: "BCA (AICTE)",
-            description: "Bachelor of Computer Applications program approved by AICTE, providing a strong foundation in computer applications and software.",
-            duration: "3 Years",
-            seats: "60",
-            tags: ["C++", "Data Structures", "DBMS"]
-        },
-        {
-            id: "mscit-cloud",
-            title: "M.Sc.I.T. with Cloud Computing specialization",
-            description: "A postgraduate program with a specialization in Cloud Computing technologies, architecture, and services.",
-            duration: "2 Years",
-            seats: "40",
-            tags: ["AWS", "Azure", "Virtualization", "DevOps"],
-            featured: true
-        },
-        {
-            id: "msc-data-science",
-            title: "M.Sc. (Data Science & Big Data Analytics)",
-            description: "In association with Group Data Analytic Cell, Aditya Birla Management Ltd., and TCS iON, this program focuses on data analysis, machine learning, and big data technologies.",
-            duration: "2 Years",
-            seats: "40",
-            tags: ["Machine Learning", "Big Data", "R", "Tableau"]
-        },
-        {
-            id: "mca",
-            title: "MCA (AICTE)",
-            description: "Master of Computer Applications program approved by AICTE, for advanced studies in software development and computer applications.",
-            duration: "2 Years",
-            seats: "60",
-            tags: ["Advanced Java", "Software Engineering", "Mobile Dev"]
-        }
-    ],
+export const programsData: { it: Program[]; cs: Program[]; certificate: Program[] } = {
     cs: [
         {
-            id: "bvoc-cyber",
-            title: "B.Voc. (Cyber Security and Forensic)",
-            description: "A skill-based program under UGC (NSQF), New Delhi, focusing on the principles and practices of cyber security and digital forensics.",
+            id: "bsc-cs",
+            title: "B.Sc. Computer Science",
+            description: "A comprehensive 3-year undergraduate program focusing on the core principles of Computer Science, algorithms, and software engineering.",
             duration: "3 Years",
-            seats: "50",
-            tags: ["Ethical Hacking", "Forensics", "Network Security"]
+            seats: "60",
+            tags: ["Algorithms", "Data Structures", "Programming"]
+        },
+        {
+            id: "bsc-ds",
+            title: "B.Sc. Data Science",
+            description: "A specialized undergraduate program designed to provide in-depth knowledge of data analysis, statistics, and machine learning.",
+            duration: "3 Years",
+            seats: "60",
+            tags: ["Data Analysis", "Statistics", "Machine Learning"]
+        },
+        {
+            id: "bca-cs",
+            title: "BCA (Bachelor of Computer Applications)",
+            description: "A 3-year AICTE approved undergraduate program providing specific skills in computer applications and software development.",
+            duration: "3 Years",
+            seats: "60",
+            tags: ["Web Dev", "Database", "Software Eng"]
+        },
+        {
+            id: "msc-cs",
+            title: "M.Sc. Computer Science",
+            description: "An advanced 2-year postgraduate program deepening knowledge in computer science theory and practice.",
+            duration: "2 Years",
+            seats: "40",
+            tags: ["Advanced Algorithms", "AI", "Research"]
+        },
+        {
+            id: "msc-ai",
+            title: "M.Sc. Artificial Intelligence",
+            description: "A specialized postgraduate program focusing on AI, neural networks, and deep learning technologies.",
+            duration: "2 Years",
+            seats: "40",
+            tags: ["Deep Learning", "Neural Networks", "NLP"],
+            featured: true
+        }
+    ],
+    it: [
+        {
+            id: "bsc-it",
+            title: "B.Sc. Information Technology",
+            description: "A 3-year undergraduate program covering all aspects of IT including software, networking, and databases.",
+            duration: "3 Years",
+            seats: "60",
+            tags: ["Networking", "Web Dev", "Database"]
         },
         {
             id: "bsc-cyber",
             title: "B.Sc. Cyber Security",
-            description: "An undergraduate degree dedicated to the specialization of cyber security, network defense, and information protection.",
+            description: "A specialized undergraduate degree focusing on network security, cryptography, and information protection.",
             duration: "3 Years",
             seats: "60",
-            tags: ["Cryptography", "Risk Management", "Penetration Testing"]
+            tags: ["Network Security", "Ethical Hacking", "Cryptography"]
+        },
+        {
+            id: "bvoc-cyber",
+            title: "B.Voc. Cyber Security and Forensic",
+            description: "A UGC vocational degree focusing on practical skills in cyber security and digital forensics.",
+            duration: "3 Years",
+            seats: "50",
+            tags: ["Digital Forensics", "Cyber Law", "Security Audit"]
+        },
+        {
+            id: "msc-it",
+            title: "M.Sc. Information Technology",
+            description: "A 2-year postgraduate program for advanced IT studies including cloud computing and enterprise solutions.",
+            duration: "2 Years",
+            seats: "40",
+            tags: ["Cloud Computing", "Enterprise IT", "Project Mgmt"]
         },
         {
             id: "msc-cyber",
             title: "M.Sc. Cyber Security",
-            description: "An advanced postgraduate degree program focusing on specialized areas of cyber security and information assurance.",
+            description: "A specialized postgraduate program for advanced studies in information security and defense strategies.",
             duration: "2 Years",
             seats: "40",
-            tags: ["Advanced Ethical Hacking", "IoT Security", "Blockchain"]
+            tags: ["Advanced Security", "Risk Mgmt", "Defense Ops"]
+        },
+        {
+            id: "msc-ds-analytics",
+            title: "M.Sc. Data Science & Big Data Analytics",
+            description: "A collaborative PG program with industry partners focusing on big data technologies and analytics.",
+            duration: "2 Years",
+            seats: "40",
+            tags: ["Big Data", "Analytics", "Hadoop"],
+            featured: true
+        },
+        {
+            id: "mca-it",
+            title: "MCA",
+            description: "Master of Computer Applications program approved by AICTE, for advanced studies in software development and computer applications.",
+            duration: "2 Years",
+            seats: "60",
+            tags: ["Full Stack", "Software Architecture", "Mobile Dev"]
         }
     ],
+    certificate: [
+        {
+            id: "cert-python",
+            title: "Certificate in Python Programming",
+            description: "A short-term course designed to master the fundamentals and advanced concepts of Python programming.",
+            duration: "6 Months",
+            seats: "30",
+            tags: ["Python", "Scripting", "Data Handling"]
+        },
+        {
+            id: "cert-cyber",
+            title: "Certificate in Cyber Security & Forensics",
+            description: "A hands-on certificate course covering the essentials of cyber security, ethical hacking, and basics of digital forensics.",
+            duration: "6 Months",
+            seats: "30",
+            tags: ["Security", "Forensics", "Hacking"]
+        },
+        {
+            id: "cert-html",
+            title: "Certificate in HTML & Web Design",
+            description: "Learn the building blocks of the web with HTML5, CSS3, and basic responsive design principles.",
+            duration: "3 Months",
+            seats: "40",
+            tags: ["HTML5", "CSS3", "Web Design"]
+        },
+        {
+            id: "cert-hardware",
+            title: "Certificate in Computer Hardware & Maintenance",
+            description: "Practical training in computer assembly, troubleshooting, hardware maintenance, and networking basics.",
+            duration: "3 Months",
+            seats: "30",
+            tags: ["Hardware", "Maintenance", "Networking"]
+        }
+    ]
 };
 
 export const libraryResources: LibraryResource[] = [];

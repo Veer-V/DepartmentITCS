@@ -7,7 +7,7 @@ import { programsData, Program } from "@/lib/data";
 import EmptyState from "./ui/EmptyState";
 
 const ProgramsGrid = () => {
-    const [activeTab, setActiveTab] = useState<"it" | "cs">("it");
+    const [activeTab, setActiveTab] = useState<"it" | "cs" | "certificate">("it");
 
     return (
         <section id="programs" className="py-20 bg-gray-50">
@@ -22,10 +22,10 @@ const ProgramsGrid = () => {
 
                 {/* Tabs */}
                 <div className="flex justify-center mb-12">
-                    <div className="flex space-x-8 border-b-2 border-gray-200">
+                    <div className="flex space-x-8 border-b-2 border-gray-200 overflow-x-auto scrollbar-hide [-ms-overflow-style:'none'] [scrollbar-width:'none'] [&::-webkit-scrollbar]:hidden">
                         <button
                             onClick={() => setActiveTab("it")}
-                            className={`pb-4 text-lg font-medium transition-colors relative ${activeTab === "it"
+                            className={`pb-4 text-lg font-medium transition-colors relative whitespace-nowrap ${activeTab === "it"
                                 ? "text-accent"
                                 : "text-gray-500 hover:text-gray-700"
                                 }`}
@@ -40,13 +40,28 @@ const ProgramsGrid = () => {
                         </button>
                         <button
                             onClick={() => setActiveTab("cs")}
-                            className={`pb-4 text-lg font-medium transition-colors relative ${activeTab === "cs"
+                            className={`pb-4 text-lg font-medium transition-colors relative whitespace-nowrap ${activeTab === "cs"
                                 ? "text-accent"
                                 : "text-gray-500 hover:text-gray-700"
                                 }`}
                         >
                             Computer Science
                             {activeTab === "cs" && (
+                                <motion.div
+                                    layoutId="activeTab"
+                                    className="absolute bottom-[-2px] left-0 w-full h-1 bg-accent"
+                                />
+                            )}
+                        </button>
+                        <button
+                            onClick={() => setActiveTab("certificate")}
+                            className={`pb-4 text-lg font-medium transition-colors relative whitespace-nowrap ${activeTab === "certificate"
+                                ? "text-accent"
+                                : "text-gray-500 hover:text-gray-700"
+                                }`}
+                        >
+                            Certificate Courses
+                            {activeTab === "certificate" && (
                                 <motion.div
                                     layoutId="activeTab"
                                     className="absolute bottom-[-2px] left-0 w-full h-1 bg-accent"
@@ -69,7 +84,7 @@ const ProgramsGrid = () => {
                             {(!programsData[activeTab] || programsData[activeTab].length === 0) ? (
                                 <EmptyState
                                     icon={BookOpen}
-                                    title={`No ${activeTab === "it" ? "IT" : "CS"} programs found`}
+                                    title={`No ${activeTab === "it" ? "IT" : activeTab === "cs" ? "CS" : "Certificate"} programs found`}
                                     description="Program details will be available soon."
                                 />
                             ) : (
